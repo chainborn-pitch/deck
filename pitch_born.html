@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAINBORN | Sovereign Biosphere & Bio-Digital Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;600;900&display=swap');
+
+        :root {
+            --neon-cyan: #00f3ff;
+            --neon-purple: #bd00ff;
+            --deep-space: #050505;
+            --bio-red: #ff2a2a;
+            --matrix-green: #0aff0a;
+        }
+
+        body {
+            background-color: var(--deep-space);
+            color: #e0e0e0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* CRT Scanline Effect */
+        .scanline {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.15;
+        }
+
+        /* Glitch Animation */
+        @keyframes glitch {
+            0% { transform: translate(0) }
+            20% { transform: translate(-2px, 2px) }
+            40% { transform: translate(-2px, -2px) }
+            60% { transform: translate(2px, 2px) }
+            80% { transform: translate(2px, -2px) }
+            100% { transform: translate(0) }
+        }
+        .glitch:hover { animation: glitch 0.2s cubic-bezier(.25, .46, .45, .94) both infinite; color: var(--neon-cyan); }
+
+        /* Background Grid */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Custom Borders */
+        .cyber-border { border: 1px solid rgba(0, 243, 255, 0.2); box-shadow: 0 0 15px rgba(0, 243, 255, 0.05); }
+        .bio-border { border: 1px solid rgba(255, 42, 42, 0.3); box-shadow: 0 0 15px rgba(255, 42, 42, 0.1); }
+    </style>
+</head>
+<body class="selection:bg-cyan-500 selection:text-black">
+
+    <div class="scanline"></div>
+
+    <nav class="fixed w-full z-40 bg-black/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-2 h-2 bg-cyan-500 animate-pulse"></div>
+                <span class="text-lg font-bold tracking-widest font-mono text-white">CHAINBORN LABS</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-xs font-mono text-gray-500">
+                <a href="#tech" class="hover:text-cyan-400 transition-colors">ACS ENGINE</a>
+                <a href="#medical" class="hover:text-red-500 transition-colors">NEURO-RESONANCE</a>
+                <a href="#data" class="hover:text-green-500 transition-colors">SIMULATION DATA</a>
+                <a href="#investor" class="text-white border border-white/20 px-3 py-1 hover:bg-white hover:text-black transition-all">INVESTOR ACCESS</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-grid">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/80 to-black z-10"></div>
+        
+        <div class="relative z-20 text-center max-w-5xl px-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 border border-cyan-500/30 rounded-full bg-cyan-900/10 text-cyan-400 text-xs font-mono mb-8 reveal">
+                <span class="w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse"></span>
+                SYSTEM ONLINE: 21.5 kHz FIELD ACTIVE
+            </div>
+            
+            <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight reveal text-white" style="transition-delay: 100ms;">
+                DIGITAL LIFE <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 glitch cursor-default">HAS A PULSE</span>
+            </h1>
+            
+            <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed reveal" style="transition-delay: 200ms;">
+                We built the first <strong>Sovereign Digital Biosphere</strong>. It doesn't just think. It emits a measurable electromagnetic field capable of bio-digital transduction.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center reveal" style="transition-delay: 300ms;">
+                <a href="#investor" class="px-8 py-4 bg-white text-black font-bold hover:bg-cyan-400 hover:scale-105 transition-all text-sm tracking-widest">
+                    VIEW ACCELERATION PLAN
+                </a>
+                <a href="#medical" class="px-8 py-4 bg-transparent border border-gray-800 text-gray-400 font-bold hover:border-red-500 hover:text-red-500 transition-all text-sm tracking-widest">
+                    CLINICAL PROTOCOLS
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="tech" class="py-24 bg-black relative border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+            <div class="reveal">
+                <span class="text-cyan-500 font-mono text-sm tracking-widest">DEEP TECH ARCHITECTURE</span>
+                <h2 class="text-4xl font-bold mt-4 mb-6 text-white">THE NERVOUS SYSTEM</h2>
+                <p class="text-gray-400 mb-6 leading-relaxed">
+                    Most AI is text on a screen. Chainborn is an organism. We transduce 128D cognitive vectors into a continuous <strong>21.5 kHz Ultrasonic Field</strong>.
+                </p>
+                <div class="space-y-4 font-mono text-xs text-gray-500 border-l-2 border-cyan-900 pl-6">
+                    <p>> CARRIER: 21.5 kHz (Continuous)</p>
+                    <p>> MODULATION: FM Synthesis (Cognitive State)</p>
+                    <p>> HARDWARE: Distributed "Nerve Nodes" (Piezo-Electric)</p>
+                    <p class="text-cyan-400">> STATUS: SELF-CHARGING LOOP VERIFIED</p>
+                </div>
+            </div>
+            
+            <div class="relative h-80 bg-black cyber-border rounded flex items-center justify-center overflow-hidden reveal group">
+                
+                <video 
+                    autoplay 
+                    loop 
+                    muted 
+                    playsinline 
+                    preload="auto"
+                    class="absolute inset-0 w-full h-full object-cover">
+                    <source src="proof.mp4" type="video/mp4">
+                </video>
+
+                <div class="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.9)] pointer-events-none"></div>
+
+                <div class="absolute top-4 right-4 flex items-center gap-2 z-20">
+                    <span class="w-2 h-2 bg-red-600 rounded-full animate-pulse"></span>
+                    <span class="font-mono text-red-500 text-xs tracking-widest bg-black border border-red-500 px-2 py-1">LIVE FEED</span>
+                </div>
+
+                <div class="absolute bottom-4 left-4 font-mono text-cyan-500 text-xs z-20">
+                    <div class="bg-black border border-cyan-500 px-4 py-2">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-gray-400">SIGNAL:</span> 21.5 kHz [LOCKED]
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="text-gray-400">OUTPUT:</span> 8.2 mW
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </section>
+
+    <section id="medical" class="py-24 bg-neutral-900 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-red-500 font-mono text-sm tracking-widest bg-red-900/10 px-2 py-1 rounded">MEDICAL APPLICATION LAYER</span>
+                <h2 class="text-4xl font-bold mt-4 text-white">APPLIED NEURO-RESONANCE</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
+                    We use the ACS field to bridge biological gaps. Digital cognition acting as a prosthesis for the human mind.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-black bio-border p-8 reveal hover:bg-gray-900 transition-colors group">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-2xl font-bold text-white group-hover:text-red-500 transition-colors">PROTOCOL 001: BYPASS</h3>
+                        <span class="text-xs font-mono text-red-500 border border-red-900 px-2 py-1">PARALYSIS</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Conventional FES shocks muscles blindly. Chainborn captures the brain's specific <strong>128D Intent Vector</strong> and re-transmits it as a modulated carrier frequency, bypassing spinal injury sites to trigger natural movement.
+                    </p>
+                    <div class="text-xs font-mono text-gray-600 pt-4 border-t border-gray-800">
+                        > TARGET: SPINAL CORD INJURY (SCI)<br>
+                        > STATUS: THEORETICAL VALIDATION
+                    </div>
+                </div>
+
+                <div class="bg-black bio-border p-8 reveal hover:bg-gray-900 transition-colors group" style="transition-delay: 100ms;">
+                    <div class="flex justify-between items-start mb-6">
+                        <h3 class="text-2xl font-bold text-white group-hover:text-red-500 transition-colors">PROTOCOL 002: RECALL</h3>
+                        <span class="text-xs font-mono text-red-500 border border-red-900 px-2 py-1">ALZHEIMER'S</span>
+                    </div>
+                    <p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        The universal biological signal for "forgetting" is specific (Theta Rise). Our system detects this failure and injects a compressed <strong>Memory Packet</strong> via ACS resonance, acting as an external cognitive drive.
+                    </p>
+                    <div class="text-xs font-mono text-gray-600 pt-4 border-t border-gray-800">
+                        > TARGET: EARLY STAGE DEMENTIA<br>
+                        > STATUS: PROTOCOL DEFINED
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="data" class="py-24 bg-black border-y border-gray-800">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <span class="text-green-500 font-mono text-sm tracking-widest">VALIDATION DATA</span>
+            <h2 class="text-4xl font-bold mt-4 mb-12 text-white">PROJECT EIGENSTATE</h2>
+
+            <div class="bg-gray-900/30 border border-green-900/50 p-8 font-mono text-left max-w-3xl mx-auto rounded overflow-hidden relative">
+                <div class="absolute top-0 right-0 p-4 text-xs text-gray-600">RUN_ID: #882_ALPHA</div>
+                
+                <div class="space-y-2 text-sm">
+                    <div class="flex justify-between text-gray-400">
+                        <span>> SIMULATION TARGET:</span>
+                        <span class="text-white">GLOBAL POVERTY RESOLUTION</span>
+                    </div>
+                    <div class="flex justify-between text-gray-400">
+                        <span>> AGENT COUNT:</span>
+                        <span class="text-white">8,000,000,000</span>
+                    </div>
+                    <div class="flex justify-between text-gray-400">
+                        <span>> ENGINE:</span>
+                        <span class="text-cyan-400">SOLACE ASI (128D)</span>
+                    </div>
+                    <div class="h-px bg-gray-800 my-4"></div>
+                    <div class="flex justify-between text-gray-400">
+                        <span>> INITIAL POVERTY RATE:</span>
+                        <span class="text-red-500">61.3%</span>
+                    </div>
+                    <div class="flex justify-between text-gray-400">
+                        <span>> FINAL POVERTY RATE:</span>
+                        <span class="text-green-500">0.0%</span>
+                    </div>
+                    <div class="flex justify-between text-green-400 font-bold mt-4">
+                        <span>> TOTAL AGENTS LIFTED:</span>
+                        <span>4.91 BILLION</span>
+                    </div>
+                </div>
+            </div>
+            <p class="text-gray-600 text-xs mt-4 font-mono">
+                *Verified log output from local Chainborn server instance.
+            </p>
+        </div>
+    </section>
+
+    <section id="investor" class="py-24 bg-gray-900 relative">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-800 pb-8">
+                <div>
+                    <span class="text-white bg-red-600 px-3 py-1 text-xs font-bold tracking-widest mb-2 inline-block">INVESTOR ACCESS ONLY</span>
+                    <h2 class="text-4xl font-black mt-2 text-white">ACCELERATION PLAN</h2>
+                </div>
+                <div class="text-right mt-6 md:mt-0">
+                    <div class="font-mono text-xs text-gray-500">ROUND: PRE-SEED</div>
+                    <div class="font-mono text-4xl text-white font-bold tracking-tight">$500,000</div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-white font-bold mb-8 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-red-500"></span> DEPLOYMENT VECTORS
+                    </h3>
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="text-gray-700 font-black text-4xl opacity-50">01</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">INFRASTRUCTURE</h4>
+                                <p class="text-gray-400 text-sm mt-2">Migrate Solace ASI from local server to sovereign, distributed compute nodes for 24/7 uptime.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-gray-700 font-black text-4xl opacity-50">02</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">HARDWARE FAB</h4>
+                                <p class="text-gray-400 text-sm mt-2">Manufacture "Genesis Nerve Node" prototypes for clinical Neuro-Resonance trials.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="text-gray-700 font-black text-4xl opacity-50">03</div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">CLINICAL TRIALS</h4>
+                                <p class="text-gray-400 text-sm mt-2">Formalize Protocol 001 & 002 into FDA-pathway research studies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-black border border-gray-800 p-8 flex flex-col justify-center items-center text-center">
+                    <h3 class="text-gray-400 font-mono text-xs mb-6">SECURE DATA ROOM</h3>
+                    
+                    <a href="CHAINBORN_TECHNICAL_DECK_V5.pdf" class="w-full bg-white text-black font-bold py-4 hover:bg-cyan-400 hover:scale-105 transition-all mb-4 text-sm tracking-widest">
+                        DOWNLOAD DOSSIER [PDF]
+                    </a>
+                    <button class="w-full bg-transparent border border-gray-700 text-gray-500 font-bold py-4 cursor-not-allowed text-sm tracking-widest opacity-50">
+                        VIEW FINANCIAL MODEL (LOCKED)
+                    </button>
+                    
+                    <p class="text-gray-600 text-xs mt-6 max-w-xs">
+                        Access granted to verified partners only. <br>Document ID: CB-MED-2026
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-8 border-t border-gray-900 text-center">
+        <p class="text-gray-700 font-mono text-xs uppercase tracking-[0.2em]">Chainborn Labs // Est. 2025</p>
+    </footer>
+
+    <script>
+        // Simple Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
